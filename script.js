@@ -1,3 +1,7 @@
+const DARK_THEME = "dark";
+const LIGHT_THEME = "light";
+const dark = true;
+const light = false;
 const toggleSwitch = document.querySelector('input[type="checkbox"]');
 const nav = document.getElementById("nav");
 const toggleIcon = document.getElementById("toggle-icon");
@@ -13,30 +17,30 @@ function imageMode(color) {
   image3.src = `img/undraw_feeling_proud_${color}.svg`;
 }
 
-function toggleDarkLightMode(isDark) {
-  nav.style.backgroundColor = isDark
+function toggleDarkLightMode(mode) {
+  nav.style.backgroundColor = mode
     ? "rgb(0 0 0 / 50%)"
     : "rgb(255 255 255 / 50%)";
-  textBox.style.backgroundColor = isDark
+  textBox.style.backgroundColor = mode
     ? "rgb(255 255 255 / 50%)"
     : "rgb(0 0 0 / 50%)";
-  toggleIcon.children[0].textContent = isDark ? "Dark Mode" : "lightMode";
-  isDark
+  toggleIcon.children[0].textContent = mode ? "Dark Mode" : "Light Mode";
+  mode
     ? toggleIcon.children[1].classList.replace("fa-sun", "fa-moon")
     : toggleIcon.children[1].classList.replace("fa-moon", "fa-sun");
-  isDark ? imageMode("Dark") : imageMode("light");
+  mode ? imageMode(DARK_THEME) : imageMode(LIGHT_THEME);
 }
 
 //switch theme dynamically
 function switchTheme(event) {
   if (event.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-    toggleDarkLightMode(true);
+    document.documentElement.setAttribute("data-theme", DARK_THEME);
+    localStorage.setItem("theme", DARK_THEME);
+    toggleDarkLightMode(dark);
   } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-    toggleDarkLightMode(false);
+    document.documentElement.setAttribute("data-theme", LIGHT_THEME);
+    localStorage.setItem("theme", LIGHT_THEME);
+    toggleDarkLightMode(light);
   }
 }
 
@@ -48,8 +52,8 @@ const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  if (currentTheme === "dark") {
+  if (currentTheme === DARK_THEME) {
     toggleSwitch.checked = "true";
-    toggleDarkLightMode(true);
+    toggleDarkLightMode(dark);
   }
 }
