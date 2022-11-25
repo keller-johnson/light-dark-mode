@@ -22,6 +22,8 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "Open Sans", "Franklin Gothic Medium", Arial, Helvetica,
+    sans-serif;
 }
 
 body {
@@ -94,7 +96,6 @@ a:focus {
   background: var(--background);
   box-shadow: var(--box-shadow);
 }
-
 img {
   height: 300px;
   width: 300px;
