@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Dark Mode Switch -->
+    <div class="theme-switch-wrapper">
+      <span id="toggle-icon">
+        <span class="toggle-text">Light Mode</span>
+        <i class="fas fa-sun"></i>
+      </span>
+      <label class="theme-switch">
+        <input type="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
     <!-- Navigation -->
     <nav id="nav">
       <a href="#home">HOME</a>
@@ -56,7 +67,7 @@
           <img
             src="img/undraw_feeling_proud_light.svg"
             alt="feeling proud"
-            id="'image3"
+            id="image3"
           />
         </div>
       </div>
@@ -64,9 +75,31 @@
     <!-- Projects Section -->
     <section id="projects">
       <h1>Buttons</h1>
+      <div class="buttons">
+        <button class="primary">primary</button>
+        <button class="secondary">secondary</button>
+        <button class="primary" disabled>disabled</button>
+        <button class="outline">outline</button>
+        <button class="secondary outline">alt outline</button>
+        <button class="outline" disabled>disabled</button>
+      </div>
+      <div class="text-box" id="text-box">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
+          deserunt saepe animi eligendi et voluptatum fuga cumque ipsam
+          voluptatem quidem necessitatibus quasi quo incidunt possimus suscipit
+          assumenda, aliquid quas amet?
+        </p>
+      </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact"></section>
+    <section id="contact">
+      <div class="social-icons">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+    </section>
     <!-- Script -->
     <script src="script.js"></script>
   </body>
